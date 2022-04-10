@@ -15,7 +15,7 @@ class AdminTaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::with('user')->orderBy('due_date')->get();
+        $tasks = Task::with('user')->get();
 
         return  view('admin.tasks.index',compact('tasks'));
     }
@@ -27,7 +27,7 @@ class AdminTaskController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('tasks.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class AdminTaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('tasks.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class AdminTaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authorize('tasks.edit');
     }
 
     /**
@@ -83,6 +83,6 @@ class AdminTaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('tasks.delete');
     }
 }

@@ -16,9 +16,9 @@ class UserTaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::auth()->user()->tasks;
+        /*$tasks = Task::auth()->user()->tasks;*/
 
-        return  view('user.tasks.index',compact('tasks'));
+        return  view('admin.tasks.index'/*,compact('tasks')*/);
     }
 
     /**
